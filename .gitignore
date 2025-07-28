@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/IZUMU-Clientes/FileContentIndex
+/.vs/IZUMU-Clientes/DesignTimeBuild
+/.vs/ProjectEvaluation
+/.vs/IZUMU-Clientes/v17
