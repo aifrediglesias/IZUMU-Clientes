@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  izumuapi:
+    image: ${DOCKER_REGISTRY-}izumuapi
+    container_name: izumu-api
+    depends_on:
+      - sqldata
+    build:
+      context: .
+      dockerfile: IzumuApi/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqldata;Database=IzumuDb;User=sa;Password=Pass@word123;TrustServerCertificate=True;
+    ports:
+      - "5000:80"
+    networks:
+      - izumu-net
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - SA_PASSWORD=Pass@word123
+      - ACCEPT_EULA=Y
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    ports:
+      - "1433:1433"
+    networks:
+      - izumu-net
+
+networks:
+  izumu-net:
+
+volumes:
+  sqlserver_data:  

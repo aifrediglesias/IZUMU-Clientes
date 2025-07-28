@@ -1,0 +1,67 @@
+name: dockercompose16280759137032910832
+services:
+  izumuapi:
+    build:
+      context: C:\Users\aifre\Documents\Code\IZUMU-Clientes
+      dockerfile: IzumuApi/Dockerfile
+    container_name: izumu-api
+    depends_on:
+      sqldata:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      ConnectionStrings__DefaultConnection: Server=sqldata;Database=IzumuDb;User=sa;Password=Pass@word123;TrustServerCertificate=True;
+    image: izumuapi
+    networks:
+      izumu-net: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5000"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\aifre\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\aifre\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  sqldata:
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pass@word123
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      izumu-net: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: sqlserver_data
+        target: /var/opt/mssql
+        volume: {}
+networks:
+  izumu-net:
+    name: dockercompose16280759137032910832_izumu-net
+volumes:
+  sqlserver_data:
+    name: dockercompose16280759137032910832_sqlserver_data

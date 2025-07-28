@@ -1,0 +1,15 @@
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\bin\Debug\net8.0\IzumuData.deps.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\bin\Debug\net8.0\IzumuData.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\bin\Debug\net8.0\IzumuData.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.csproj.AssemblyReference.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.AssemblyInfoInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.AssemblyInfo.cs
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.csproj.CoreCompileInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.sourcelink.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\refint\IzumuData.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\ref\IzumuData.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\bin\Debug\net8.0\IzumuData.runtimeconfig.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuData\obj\Debug\net8.0\IzumuData.genruntimeconfig.cache

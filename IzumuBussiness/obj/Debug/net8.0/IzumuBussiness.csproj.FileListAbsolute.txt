@@ -1,0 +1,16 @@
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\bin\Debug\net8.0\IzumuBussiness.deps.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\bin\Debug\net8.0\IzumuBussiness.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\bin\Debug\net8.0\IzumuBussiness.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\bin\Debug\net8.0\IzumuData.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\bin\Debug\net8.0\IzumuData.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.csproj.AssemblyReference.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.AssemblyInfoInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.AssemblyInfo.cs
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.csproj.CoreCompileInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.sourcelink.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBus.6AA1386C.Up2Date
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\refint\IzumuBussiness.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\IzumuBussiness.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuBussiness\obj\Debug\net8.0\ref\IzumuBussiness.dll

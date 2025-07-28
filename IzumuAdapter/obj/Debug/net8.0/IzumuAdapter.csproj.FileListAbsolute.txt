@@ -1,0 +1,13 @@
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\bin\Debug\net8.0\IzumuAdapter.deps.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\bin\Debug\net8.0\IzumuAdapter.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\bin\Debug\net8.0\IzumuAdapter.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.csproj.AssemblyReference.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.AssemblyInfoInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.AssemblyInfo.cs
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.csproj.CoreCompileInputs.cache
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.sourcelink.json
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\refint\IzumuAdapter.dll
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\IzumuAdapter.pdb
+C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuAdapter\obj\Debug\net8.0\ref\IzumuAdapter.dll
