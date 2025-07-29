@@ -6,9 +6,11 @@
 // <date>19/07/2025 11:11:05</date>
 // <summary>Código fuente interfaz KafkaManagerAdapter.</summary>
 //-----------------------------------------------------------------------
-namespace IzumuAdapter
+namespace IzumuAdapter.Implementations
 {
     using Confluent.Kafka;
+    using IzumuAdapter;
+    using IzumuAdapter.Interfaces;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
@@ -60,8 +62,8 @@ namespace IzumuAdapter
         /// <param name="logger">Logger manager.</param>
         public KafkaManagerAdapter(IConfiguration configuration, ILogger<KafkaManagerAdapter> logger)
         {
-            this._configuration = configuration;
-            this._logger = logger;
+            _configuration = configuration;
+            _logger = logger;
         }
 
         #endregion
@@ -76,7 +78,7 @@ namespace IzumuAdapter
             get
             {
                 if (_objectLock == null)
-                    this._objectLock = new object();
+                    _objectLock = new object();
 
                 return _objectLock;
             }
@@ -89,14 +91,14 @@ namespace IzumuAdapter
         {
             add
             {
-                lock (this.ObjectLock)
+                lock (ObjectLock)
                 {
                     MessageReceiveEvent += value;
                 }
             }
             remove
             {
-                lock (this.ObjectLock)
+                lock (ObjectLock)
                 {
                     MessageReceiveEvent -= value;
                 }
@@ -110,18 +112,18 @@ namespace IzumuAdapter
         {
             get
             {
-                if (this._consumer == null)
+                if (_consumer == null)
                 {
                     var consumerConfig = new ConsumerConfig
                     {
-                        BootstrapServers = this._configuration?.GetSection("BootstrapServers").Value,
+                        BootstrapServers = _configuration?.GetSection("BootstrapServers").Value,
                         GroupId = "IzumuConsumerGroup",
                         AutoOffsetReset = AutoOffsetReset.Earliest
                     };
 
-                    this._consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
+                    _consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
                 }
-                return this._consumer;
+                return _consumer;
             }
         }
 
@@ -132,16 +134,16 @@ namespace IzumuAdapter
         {
             get
             {
-                if (this._producer == null)
+                if (_producer == null)
                 {
                     var producerconfig = new ProducerConfig
                     {
-                        BootstrapServers = this._configuration?.GetSection("BootstrapServers").Value
+                        BootstrapServers = _configuration?.GetSection("BootstrapServers").Value
                     };
 
-                    this._producer = new ProducerBuilder<Null, string>(producerconfig).Build();
+                    _producer = new ProducerBuilder<Null, string>(producerconfig).Build();
                 }
-                return this._producer;
+                return _producer;
             }
         }
 
@@ -154,8 +156,8 @@ namespace IzumuAdapter
         /// </summary>
         public void Dispose()
         {
-            this.Consumer?.Dispose();
-            this.Producer?.Dispose();
+            Consumer?.Dispose();
+            Producer?.Dispose();
         }
 
         /// <summary>
@@ -167,7 +169,7 @@ namespace IzumuAdapter
         {
             try
             {
-                this.Consumer?.Subscribe(topic);
+                Consumer?.Subscribe(topic);
 
                 while (!stoppingToken.IsCancellationRequested)
                 {
@@ -177,7 +179,7 @@ namespace IzumuAdapter
                     }
                     catch (ConsumeException ex)
                     {
-                        this._logger?.LogError($"Error processing Kafka message: {ex.Message}");
+                        _logger?.LogError($"Error processing Kafka message: {ex.Message}");
                     }
 
                     await Task.Delay(TimeSpan.FromMilliseconds(200), stoppingToken);
@@ -185,11 +187,11 @@ namespace IzumuAdapter
             }
             catch (OperationCanceledException ex)
             {
-                this._logger?.LogError($"Error processing Kafka message: {ex.Message}");
+                _logger?.LogError($"Error processing Kafka message: {ex.Message}");
             }
             finally
             {
-                this.Consumer?.Close();
+                Consumer?.Close();
             }
         }
 
@@ -203,7 +205,7 @@ namespace IzumuAdapter
         {
             var kafkamessage = new Message<Null, string> { Value = message, };
             if (kafkamessage != null && !string.IsNullOrEmpty(topic))
-                await this.Producer!.ProduceAsync(topic, kafkamessage);
+                await Producer!.ProduceAsync(topic, kafkamessage);
         }
 
         /// <summary>
@@ -215,21 +217,21 @@ namespace IzumuAdapter
             {
                 await Task.Run(() =>
                 {
-                    var consumeResult = this.Consumer?.Consume(TimeSpan.FromMilliseconds(500));
+                    var consumeResult = Consumer?.Consume(TimeSpan.FromMilliseconds(500));
                     if (consumeResult != null)
                     {
                         var message = consumeResult?.Message.Value;
-                        this._logger?.LogInformation($"Received inventory update: {message}");
+                        _logger?.LogInformation($"Received inventory update: {message}");
 
                         if (!string.IsNullOrEmpty(message))
-                            this.MessageReceiveEvent?.Invoke(this, new InputMessageEventHandler() { Message = message });
+                            MessageReceiveEvent?.Invoke(this, new InputMessageEventHandler() { Message = message });
                     }
                 })
                 .ConfigureAwait(false);
             }
             catch (Exception ex)
             {
-                this._logger?.LogError($"Error processing Kafka message: {ex.Message}");
+                _logger?.LogError($"Error processing Kafka message: {ex.Message}");
             }
         }
 

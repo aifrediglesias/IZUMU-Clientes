@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IzumuData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fef54adbe7ee0e7db7dd76cca75a2923ee363be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e3e29664660711d40b5b04c59ef567ea86c06d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("IzumuData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IzumuData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

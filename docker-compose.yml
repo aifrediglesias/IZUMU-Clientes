@@ -27,6 +27,19 @@ services:
       - "1433:1433"
     networks:
       - izumu-net
+  izumuweb:
+    image: ${DOCKER_REGISTRY-}izumuweb
+    container_name: izumu-web
+    build:
+      context: .
+      dockerfile: IzumuWeb/Dockerfile
+    depends_on:
+      - sqldata
+      - izumuapi
+    ports:
+      - "8080:80"
+    networks:
+      - izumu-net
 
 networks:
   izumu-net:

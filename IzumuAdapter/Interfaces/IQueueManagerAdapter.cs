@@ -6,7 +6,7 @@
 // <date>19/07/2025 11:11:41</date>
 // <summary>Código fuente clase IQueueManagerAdapter.</summary>
 //-----------------------------------------------------------------------
-namespace IzumuAdapter
+namespace IzumuAdapter.Interfaces
 {
     /// <summary>
     /// IQueueManagerAdapter.

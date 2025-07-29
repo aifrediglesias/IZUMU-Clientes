@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IzumuAdapter", "IzumuAdapte
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D523C55B-3C69-42FF-A623-9E43CFAEE283}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzumuWeb", "IzumuWeb\IzumuWeb.csproj", "{100A7F0F-CF78-42D2-A880-A3BD6DE5A028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D523C55B-3C69-42FF-A623-9E43CFAEE283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D523C55B-3C69-42FF-A623-9E43CFAEE283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D523C55B-3C69-42FF-A623-9E43CFAEE283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{100A7F0F-CF78-42D2-A880-A3BD6DE5A028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100A7F0F-CF78-42D2-A880-A3BD6DE5A028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100A7F0F-CF78-42D2-A880-A3BD6DE5A028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100A7F0F-CF78-42D2-A880-A3BD6DE5A028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
