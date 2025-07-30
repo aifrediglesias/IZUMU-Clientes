@@ -18,8 +18,8 @@ Adicionalmente se trabajó con Arquitecura orientada a microservicios.
 4. Ejecutar la aplicación
   dotnet run
 5. Abrir navigador
- http://localhost:5001 Aplicación Front.
- http://localhost:5000/swagger/index.html. Aplicación Backend.
+ -http://localhost:5001 Aplicación Front.
+ -http://localhost:5000/swagger/index.html. Aplicación Backend.
  
 # Estructura del proyecto
 - /Pages: Páginas Razor
