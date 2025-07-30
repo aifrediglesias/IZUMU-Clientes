@@ -3,10 +3,10 @@ Es un proyecto de prueba desarrollado con .NET 8 para el Backend y Razor Page en
 Adicionalmente se trabajó con Arquitecura orientada a microservicios.
 
 # Tecnologías
-ASP.NET Core Razor Pages
-Entity Framework Core
-Bootstrap
-.NET 8
+- ASP.NET Core Razor Pages
+- Entity Framework Core
+- Bootstrap
+- .NET 8
 
 # Instalación
 1. Clonar repositorio 
@@ -22,7 +22,7 @@ Bootstrap
  http://localhost:5000/swagger/index.html. Aplicación Backend.
  
 # Estructura del proyecto
-1. /Pages: Páginas Razor
-2. /Models: Modelos y DTOs
-3. /Interfaces: Lógica de negocio e interfaces
-4. /wwwroot: Archivos estáticos (CSS, JS, imágenes)
+- /Pages: Páginas Razor
+- /Models: Modelos y DTOs
+- /Interfaces: Lógica de negocio e interfaces
+- /wwwroot: Archivos estáticos (CSS, JS, imágenes)
