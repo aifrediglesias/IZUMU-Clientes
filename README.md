@@ -10,16 +10,21 @@ Adicionalmente se trabajó con Arquitecura orientada a microservicios.
 
 # Instalación
 1. Clonar repositorio 
-  git clone https://github.com/usuario/proyecto.git
+   ```bash
+   git clone https://github.com/usuario/proyecto.git
 2. Entrar en la carpeta del proyecto
-  cd proyecto
+   ```bash
+   cd proyecto
 3. Restaurar dependencias
-  dotnet restore
+   ```bash
+   dotnet restore
 4. Ejecutar la aplicación
-  dotnet run
+   ```bash
+   dotnet run
 5. Abrir navigador
- -http://localhost:5001 Aplicación Front.
- -http://localhost:5000/swagger/index.html. Aplicación Backend.
+   ```bash
+   http://localhost:5001 Aplicación Front.
+   http://localhost:5000/swagger/index.html. Aplicación Backend.
  
 # Estructura del proyecto
 - /Pages: Páginas Razor
