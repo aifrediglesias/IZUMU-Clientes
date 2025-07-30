@@ -36,7 +36,6 @@ services:
     tty: true
   izumuweb:
     image: izumuweb:dev
-    container_name: "IzumuWeb"
     build:
       args:
         BUILD_CONFIGURATION: Debug

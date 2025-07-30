@@ -1,0 +1,74 @@
+﻿@page
+@model IzumuWeb.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit page";
+}
+
+<form method="post">
+    <div class="form-row">
+        <input asp-for="Customer.Id" class="form-control" type="hidden" />
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.DocumentTypeId" class="control-label">Tipo de documento</label>
+            <select asp-for="Customer.DocumentTypeId" asp-items="Model.DocumentsTypes" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)">
+                <option value="">-- Seleccione el tipo de documento --</option>
+            </select>
+        </div>
+        <span asp-validation-for="DocumentTypeSelected" class="text-danger"></span>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.DocumentNumber" class="control-label">Número de documento</label>
+            <input asp-for="Customer.DocumentNumber" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.DocumentNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.FirstName" class="control-label">Primer Nombre</label>
+            <input asp-for="Customer.FirstName" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.SecondName" class="control-label">Segundo Nombre</label>
+            <input asp-for="Customer.SecondName" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.SecondName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.LastName" class="control-label">Primer apellido</label>
+            <input asp-for="Customer.LastName" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.SecondLastName" class="control-label">Segundo apellido</label>
+            <input asp-for="Customer.SecondLastName" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.SecondLastName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.BirthDate" class="control-label">Fecha de nacimiento</label>
+            <input asp-for="Customer.BirthDate" class="form-control" type="date" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.BirthDate" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.Email" class="control-label">Email</label>
+            <input asp-for="Customer.Email" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.Address" class="control-label">Dirección</label>
+            <input asp-for="Customer.Address" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.Address" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Customer.PhoneNumber" class="control-label">Celular</label>
+            <input asp-for="Customer.PhoneNumber" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)" />
+            <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Customer.PlanId" class="control-label">Plan de referencia</label>
+            <select asp-for="Customer.PlanId" asp-items="Model.Plans" class="form-control" readonly="@(Model.IsReadOnly ? "readonly" : null)">
+                <option value="">-- Seleccione el plan de referencia --</option>
+            </select>
+        </div>
+        <span asp-validation-for="PlanSelected" class="text-danger"></span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='@Url.Page("/Index")'">Cerrar</button>
+        <button type="submit" class="btn btn-primary" @(Model.IsReadOnly ? "disabled" : "")>Guardar</button>
+    </div>
+</form>

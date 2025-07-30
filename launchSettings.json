@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "izumuapi": "StartDebugging",
-        "izumuweb": "StartDebugging"
+        "izumuweb": "StartDebugging",
+        "sqldata": "StartWithoutDebugging"
       }
     }
   }

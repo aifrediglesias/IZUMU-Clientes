@@ -26,7 +26,6 @@ services:
       com.microsoft.visual-studio.project-name: "IzumuApi"
     tty: true
   izumuweb:
-    container_name: "IzumuWeb"
     build:
       args:
         BUILD_CONFIGURATION: Release

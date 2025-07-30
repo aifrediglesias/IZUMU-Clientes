@@ -11,9 +11,7 @@ services:
         required: true
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_HTTP_PORTS: "8080"
-      ASPNETCORE_HTTPS_PORTS: "8081"
-      ConnectionStrings__DefaultConnection: Server=sqldata;Database=IzumuDb;User=sa;Password=Pass@word123;
+      ConnectionStrings__DefaultConnection: Server=sqldata;Database=IzumuDb;User=sa;Password=Pass@word123;TrustServerCertificate=True;
     image: izumuapi
     networks:
       izumu-net: null
@@ -22,13 +20,45 @@ services:
         target: 80
         published: "5000"
         protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\aifre\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\aifre\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  izumuweb:
+    build:
+      context: C:\Users\aifre\Documents\Code\IZUMU-Clientes
+      dockerfile: IzumuWeb/Dockerfile
+    container_name: izumu-web
+    depends_on:
+      sqldata:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Url_IzumuApi: http://izumuapi
+    image: izumuweb
+    networks:
+      izumu-net: null
+    ports:
       - mode: ingress
-        target: 8080
-        protocol: tcp
-      - mode: ingress
-        target: 8081
+        target: 80
+        published: "5001"
         protocol: tcp
     volumes:
+      - type: bind
+        source: C:\Users\aifre\Documents\Code\IZUMU-Clientes\data\keys
+        target: /keys
+        bind:
+          create_host_path: true
       - type: bind
         source: C:\Users\aifre\AppData\Roaming/Microsoft/UserSecrets
         target: /home/app/.microsoft/usersecrets

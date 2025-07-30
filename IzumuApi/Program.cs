@@ -6,9 +6,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configura Kestrel para escuchar en HTTP y HTTPS
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(80); // HTTP
+    options.ListenAnyIP(443, listenOptions =>
+    {
+        listenOptions.UseHttps(); // Usa certificados montados si los hay
+    });
+});
+
 // Configurar servicios
 builder.Services.AddDbContext<IzumuContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    .UseLazyLoadingProxies());
 
 // Add services to the container.
 builder.Services.AddTransient<ICustomerBussiness, CustomerBussiness>();
@@ -30,7 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

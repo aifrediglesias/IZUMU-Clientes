@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="WebServicesConsumesManagerAdapter.cs" company="None">
+// <copyright file="WebServicesConsumesManagerAdapter.cs" company="Izumu">
 //     All rights reserved.
 // </copyright>
-// <author>aiglesias</author>
+// <author>Aifred</author>
 // <date>29/03/2020 17:00:47</date>
 // <summary>Código fuente clase WebServicesConsumesManagerAdapter.</summary>
 //-----------------------------------------------------------------------
@@ -11,20 +11,16 @@ namespace IzumuAdapter.Implementations
     using IzumuAdapter.Interfaces;
     using Newtonsoft.Json;
     using System;
-    using System.IO;
     using System.Linq;
-    using System.Net;
     using System.Net.Http;
     using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
-    using System.Text;
     using System.Threading.Tasks;
-    using System.Xml.Linq;
 
     /// <summary>
     /// Clase usada como manejadora de consumos a servicios web.
     /// </summary>
-    public class WebServicesConsumesManagerAdapter<T> : IWebServicesConsumesManagerAdapter<T?>
+    public class WebServicesConsumesManagerAdapter<T> : IWebServicesConsumesManagerAdapter<T>
     {
         #region Attributes
 
@@ -55,6 +51,41 @@ namespace IzumuAdapter.Implementations
         #region Methods And Functions
 
         /// <summary>
+        /// Metodo usado para hacer el consumo por GET y obtener
+        /// un objeto como respuesta. <see cref="IQueryable<T>"/>
+        /// </summary>
+        /// <param name="url">Url de endPoint.</param>
+        /// <param name="mediaTypeFormatter">Tipo de contenido.</param>
+        /// <param name="authorize">Autorizacion del endpoint.</param>
+        /// <param name="getParam">Array de parámetro que van a ser usados para realizar la consulta.</param>
+        /// <returns>Objeto como respuesta. <see cref="IQueryable<T>"/></returns>
+        public async Task<List<T>?> All(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue? authorize, string[]? getParam)
+        {
+            try
+            {
+                List<T>? resultadoEntidad = [];
+                using (Client = new HttpClient())
+                {
+                    Client.DefaultRequestHeaders.Authorization = authorize;
+                    HttpResponseMessage result = await Client.GetAsync(url);
+                    if (result.IsSuccessStatusCode)
+                    {
+                        ResponseResult? responseResult = JsonConvert.DeserializeObject<ResponseResult>(await result.Content.ReadAsStringAsync());
+                        string? jsonObject = responseResult?.Data?.ToString();
+                        if (!string.IsNullOrEmpty(jsonObject))
+                            resultadoEntidad = JsonConvert.DeserializeObject<List<T>>(jsonObject);
+                    }
+                }
+
+                return resultadoEntidad;
+            }
+            catch (Exception e)
+            {
+                throw new WebServiceException(e.Message, e);
+            }
+        }
+
+        /// <summary>
         /// Metodo usado para hacer el consumo por PUT dado un
         /// objeto de tipo T definido por el usuario.
         /// </summary>
@@ -63,7 +94,7 @@ namespace IzumuAdapter.Implementations
         /// <param name="authorize">Autorizacion del endpoint.</param>
         /// <param name="idEntidad">Id de la entidad que va ser procesada.</param>
         /// <returns>True, si se ejecuto exitosamente.</returns>
-        public async Task<bool> Delete(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue authorize, int idEntidad)
+        public async Task<bool?> Delete(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue? authorize, int idEntidad)
         {
             try
             {
@@ -94,18 +125,21 @@ namespace IzumuAdapter.Implementations
         /// <param name="authorize">Autorizacion del endpoint.</param>
         /// <param name="getParam">Array de parámetro que van a ser usados para realizar la consulta.</param>
         /// <returns>Objeto como respuesta. <see cref="IQueryable<T>"/></returns>
-        public async Task<T?> Get(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue authorize, string[] getParam)
+        public async Task<T?> Get(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue? authorize, string[]? getParam)
         {
             try
             {
-                T resultadoEntidad = default;
+                T? resultadoEntidad = default;
                 using (Client = new HttpClient())
                 {
                     Client.DefaultRequestHeaders.Authorization = authorize;
                     HttpResponseMessage result = await Client.GetAsync(url);
                     if (result.IsSuccessStatusCode)
                     {
-                        resultadoEntidad = await result.Content.ReadAsAsync<T>();
+                        ResponseResult? responseResult = JsonConvert.DeserializeObject<ResponseResult>(await result.Content.ReadAsStringAsync());
+                        string? jsonObject = responseResult?.Data?.ToString();
+                        if (!string.IsNullOrEmpty(jsonObject))
+                            resultadoEntidad = JsonConvert.DeserializeObject<T>(jsonObject);
                     }
                 }
 
@@ -126,7 +160,7 @@ namespace IzumuAdapter.Implementations
         /// <param name="authorize">Autorizacion del endpoint.</param>
         /// <param name="entidad">Entidad que va ser procesada.</param>
         /// <returns>True, si se ejecuto exitosamente.</returns>
-        public async Task<T?> Post(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue authorize, object entidad)
+        public async Task<T?> Post(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue? authorize, object? entidad)
         {
             try
             {
@@ -157,7 +191,7 @@ namespace IzumuAdapter.Implementations
         /// <param name="authorize">Autorizacion del endpoint.</param>
         /// <param name="entidad">Entidad que va ser procesada.</param>
         /// <returns>True, si se ejecuto exitosamente.</returns>
-        public async Task<bool?> Put(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue authorize, T entidad)
+        public async Task<bool?> Put(Uri url, MediaTypeFormatter mediaTypeFormatter, AuthenticationHeaderValue? authorize, T? entidad)
         {
             try
             {

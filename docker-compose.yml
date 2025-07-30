@@ -13,6 +13,7 @@ services:
       - ConnectionStrings__DefaultConnection=Server=sqldata;Database=IzumuDb;User=sa;Password=Pass@word123;TrustServerCertificate=True;
     ports:
       - "5000:80"
+     # - "5443:443"
     networks:
       - izumu-net
   sqldata:
@@ -33,11 +34,15 @@ services:
     build:
       context: .
       dockerfile: IzumuWeb/Dockerfile
+    environment:
+      - Url_IzumuApi=http://izumuapi
     depends_on:
       - sqldata
-      - izumuapi
+    volumes:
+      - ./data/keys:/keys
     ports:
-      - "8080:80"
+      - "5001:80"
+     # - "5444:443"
     networks:
       - izumu-net
 

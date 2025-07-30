@@ -6,11 +6,6 @@
 // <date>28/07/2025 15:16:32</date>
 // <summary>Código fuente interfaz CustomerDto.</summary>
 //-----------------------------------------------------------------------
-using IzumuData.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace IzumuBussiness.Dtos
 {
     /// <summary>
@@ -46,6 +41,11 @@ namespace IzumuBussiness.Dtos
         public int DocumentTypeId { get; set; }
 
         /// <summary>
+        /// Gets or sets DocumentType.
+        /// </summary>
+        public DocumentTypeDto? DocumentType { get; set; }
+
+        /// <summary>
         /// Gets or sets DocumentNumber.
         /// </summary>
         public string? DocumentNumber { get; set; }
@@ -71,6 +71,11 @@ namespace IzumuBussiness.Dtos
         public string? SecondLastName { get; set; }
 
         /// <summary>
+        /// Gets or sets BirthDate.
+        /// </summary>
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Gets or sets Address.
         /// </summary>
         public string? Address { get; set; }
@@ -86,14 +91,19 @@ namespace IzumuBussiness.Dtos
         public string? Email { get; set; }
 
         /// <summary>
+        /// Gets or sets CreatedAt.
+        /// </summary>
+        public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
         /// Gets or sets PlanId.
         /// </summary>
         public int PlanId { get; set; }
 
         /// <summary>
-        /// Gets or sets CreatedAt.
+        /// Gets or sets Plan.
         /// </summary>
-        public DateTime? CreatedAt { get; set; }
+        public PlanDto? Plan { get; set; }
 
         #endregion
 

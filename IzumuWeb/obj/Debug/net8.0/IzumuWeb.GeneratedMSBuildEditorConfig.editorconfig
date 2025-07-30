@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\aifre\Documents\Code\IZUMU-Clientes\IzumuWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/aifre/Documents/Code/IZUMU-Clientes/IzumuWeb/Pages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/aifre/Documents/Code/IZUMU-Clientes/IzumuWeb/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

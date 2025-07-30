@@ -53,7 +53,7 @@ namespace IzumuData.Entities
         /// <summary>
         /// Gets or sets Customers.
         /// </summary>
-        public List<Customer>? Customers { get; set; }
+        public virtual List<Customer>? Customers { get; set; }
 
         #endregion
 

@@ -46,7 +46,7 @@ namespace IzumuData.Entities
         /// Gets or sets DocumentType.
         /// </summary>
         [ForeignKey("DocumentTypeId")]
-        public DocumentType? DocumentType { get; set; }
+        public virtual DocumentType? DocumentType { get; set; }
 
         /// <summary>
         /// Gets or sets DocumentNumber.
@@ -72,6 +72,11 @@ namespace IzumuData.Entities
         /// Gets or sets SecondLastName.
         /// </summary>
         public string? SecondLastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets BirthDate.
+        /// </summary>
+        public DateTime? BirthDate { get; set; }
 
         /// <summary>
         /// Gets or sets Address.
@@ -102,7 +107,7 @@ namespace IzumuData.Entities
         /// Gets or sets Plan.
         /// </summary>
         [ForeignKey("PlanId")]
-        public Plan? Plan { get; set; }
+        public virtual Plan? Plan { get; set; }
 
         #endregion
 

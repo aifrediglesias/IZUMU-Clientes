@@ -3,8 +3,126 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+        @if (Model.ShowModal)
+        {
+            <text>
+                    $('#customerModal').modal('show');
+            </text>
+        }
+                                });
+    </script>
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1>Customers</h1>
+
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Page("/Edit")'">
+    Create New Customer
+</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tipo Identificación
+            </th>
+            <th>
+                Número Identificación
+            </th>
+            <th>
+                Primer Nombre
+            </th>
+            <th>
+                Segundo Nombre
+            </th>
+            <th>
+                Primer Apellido
+            </th>
+            <th>
+                Segundo Apellido
+            </th>
+            <th>
+                Fecha Nacimiento
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Dirección
+            </th>
+            <th>
+                Celular
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Customers == null)
+            Model.Customers = [];
+
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" asp-page-handler="LoadCustomer" asp-route-readOnly="false">Edit</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.Id" asp-page-handler="LoadCustomer" asp-route-readOnly="true">Details</a> |
+                    <a asp-route-id="@item.Id" asp-page-handler="DeleteCustomer">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
 </div>
