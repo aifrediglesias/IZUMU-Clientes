@@ -9,20 +9,20 @@ Bootstrap
 .NET 8
 
 # Instalación
-Clonar repositorio 
+1. Clonar repositorio 
   git clone https://github.com/usuario/proyecto.git
-Entrar en la carpeta del proyecto
+2 .Entrar en la carpeta del proyecto
   cd proyecto
-Restaurar dependencias
+3. Restaurar dependencias
   dotnet restore
-Ejecutar la aplicación
+4. Ejecutar la aplicación
   dotnet run
-Abrir navigador
+5. Abrir navigador
  http://localhost:5001 Aplicación Front.
  http://localhost:5000/swagger/index.html. Aplicación Backend.
  
 # Estructura del proyecto
-/Pages: Páginas Razor
-/Models: Modelos y DTOs
-/Interfaces: Lógica de negocio e interfaces
-/wwwroot: Archivos estáticos (CSS, JS, imágenes)
+1. /Pages: Páginas Razor
+2. /Models: Modelos y DTOs
+3. /Interfaces: Lógica de negocio e interfaces
+4. /wwwroot: Archivos estáticos (CSS, JS, imágenes)
