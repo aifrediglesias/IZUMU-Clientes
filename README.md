@@ -10,7 +10,7 @@ Adicionalmente se trabajó con Arquitecura orientada a microservicios.
 
 # Instalación
 1. Clonar repositorio 
-  git clone https://github.com/usuario/proyecto.git
+  git clone https://github.com/usuario/proyecto.git/r/n
 2 .Entrar en la carpeta del proyecto
   cd proyecto
 3. Restaurar dependencias
